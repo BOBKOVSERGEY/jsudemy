@@ -153,6 +153,28 @@ desingerQuestion('Donald');
     console.log(score + ' ' + argument + ' ' + cell);
 })(5);
 
+console.log('---------------');
+
+/**Closures*/
+(function() {
+    function retirement(retirementAge) {
+        var a = ' years left until retirement';
+        var now = new Date();
+        var getYear = now.getFullYear();
+        return function(yearOfBirth) {
+            var age = getYear - yearOfBirth;
+            console.log((retirementAge - age) + a);
+        }
+    }
+
+    // можно так
+    var retirementUS = retirement(65);
+    retirementUS(1987);
+
+    // или 
+    retirement(65)(1987);
+})();
+
 
 
 
