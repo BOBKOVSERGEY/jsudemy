@@ -173,8 +173,27 @@ console.log('---------------');
 
     // или 
     retirement(65)(1987);
+
+    var retirementGermany = retirement(60);
+    retirementGermany(1987);
+
 })();
 
+
+
+function interviewQuestion(job) {
+    return function(name) {
+        if (job === "designer") {
+            console.log(name + ', can you please explain what UX desing is');
+        } else if (job === "teacher") {
+            console.log('What subject do you tech ' + name + '?' );
+        } else {
+            console.log('Hello ' + name + ', what do you do?' );
+        }
+    }
+}
+
+interviewQuestion('teacher')('John');
 
 
 
