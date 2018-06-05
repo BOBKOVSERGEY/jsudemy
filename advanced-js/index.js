@@ -155,7 +155,7 @@ desingerQuestion('Donald');
 
 console.log('---------------');
 
-/**Closures*/
+/**Closures
 (function() {
     function retirement(retirementAge) {
         var a = ' years left until retirement';
@@ -198,9 +198,46 @@ interviewQuestion('teacher')('John');
 
 
 
+*/
+
+/** Bind, call apply** */
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay) {
+        if (style === 'formal') {
+            console.log('Good ' + timeOfDay + ', Ladies and Gentlemen! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+        } else if (style === 'friendly') {
+            console.log('Hey! What\'s up? I\'m '+ this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay);
+        }
+    }
+}
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+}
+
+john.presentation('formal', 'morning');
+
+// вызываем метод John для emily с параметрами
+
+john.presentation.call(emily, 'friendly', 'aternoon');
 
 
+john.presentation.apply(emily, ['friendly', 'aternoon']);
 
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+johnFriendly('morning');
+johnFriendly('night');
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+
+emilyFormal('Evening');
 
 
 
