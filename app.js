@@ -1,8 +1,8 @@
 var bs = require("browser-sync").create();
 
-bs.watch(['acynchronousjs/*.*']).on("change", bs.reload);
+bs.watch(['acynchronousjs/promises/*.*']).on("change", bs.reload);
 
 // Start a Browsersync proxy
 bs.init({
-  server: "./acynchronousjs"
+  server: "./acynchronousjs/promises"
 });
