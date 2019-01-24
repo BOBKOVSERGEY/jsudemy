@@ -28,7 +28,7 @@ const getRelated = publisher => {
   });
 };
 
-getIDs
+/*getIDs
   .then(IDs => {
     console.log(IDs);
     return getRecipe(IDs[2]);
@@ -42,4 +42,15 @@ getIDs
   })
   .catch(error => {
     console.log(error);
-  });
+  });*/
+
+async function getRecipesAW() {
+  const IDs = await getIDs;
+  console.log(IDs);
+  const recipe = await getRecipe(IDs[2]);
+  console.log(recipe);
+  const related = await getRelated('Sergey');
+  console.log(related);
+}
+
+getRecipesAW();
